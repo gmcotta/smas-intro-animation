@@ -4,16 +4,75 @@
   box-sizing: border-box;
 }
 
-.container {
+main {
   height: 100vh;
   width: 100vw;
-  
-  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: azure;
 }
 
 .tv {
+  width: 50vw;
+  aspect-ratio: 16/9;
+  display: flex;
+  background-color: #8D847F;
+  border-radius: 1vw 1vw 0 0;
+}
+
+.controls {
+  width: 20%;
+  padding: 4% 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.speaker-area {
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+}
+
+.speaker__grid {
+  background-color: #000;
+  height: 2%;
   width: 100%;
-  height: 100%;
+}
+
+.knob-area {
+  height: 45%;
+  background-color: #AEA39F ;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.knob {
+  width: 65%;
+  aspect-ratio: 1;
+  background-color: #191818;
+  border-radius: 50%;
+  border: 4px solid #60605D;
+}
+
+.power-indicator {
+  height: 6%;
+  width: 20%;
+  background-color: #E41516;
+  border: 2px solid #60605D;
+}
+
+.screen-area {
+  width: 80%;
+  margin: 3%;
+  margin-left: 0;
+  background-color: #3E3933;
+  border: 10px solid #60605D;
+  border-radius: 10px;
 }
 
 .screen {
