@@ -57,6 +57,106 @@ main {
   background-color: #191818;
   border-radius: 50%;
   border: 4px solid #60605D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.knob__button {
+  width: 60%;
+  aspect-ratio: 1;
+  background-color: #191818;
+  border-radius: 50%;
+  border: 2px solid #60605D;
+  display: flex;
+  justify-content: center;
+}
+
+.rotate-45 {
+  transform: rotate(45deg);
+}
+
+.rotate-minus-45 {
+  transform: rotate(-45deg);
+}
+
+.knob__button-holder {
+  height: 100%;
+  width: 6px;
+  background-color: #191818;
+  border: 2px solid #60605D;
+  border-top: none;
+  border-bottom: none;
+}
+
+.knob__button-indicator {
+  width: 100%;
+  height: 4px;
+  background-color: #60605D;
+}
+
+.knob__indicator {
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  background-color: #60605D;
+}
+
+.indicator-1 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.indicator-2 {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  transform: translate(-100%, -100%);
+}
+
+.indicator-3 {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.indicator-4 {
+  position: absolute;
+  bottom: 25%;
+  left: 25%;
+  transform: translate(-100%, 100%);
+}
+
+.indicator-5 {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.indicator-6 {
+  position: absolute;
+  bottom: 25%;
+  right: 25%;
+  transform: translate(100%, 100%);
+}
+
+.indicator-7 {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translate(50%, -50%);
+}
+
+.indicator-8 {
+  position: absolute;
+  top: 25%;
+  right: 25%;
+  transform: translate(100%, -100%);
 }
 
 .power-indicator {
