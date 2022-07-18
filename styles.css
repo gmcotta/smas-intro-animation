@@ -17,7 +17,7 @@ main {
   width: 50vw;
   aspect-ratio: 16/9;
   display: flex;
-  background-color: #8D847F;
+  background-color: #8d847f;
   border-radius: 1vw 1vw 0 0;
 }
 
@@ -43,7 +43,7 @@ main {
 
 .knob-area {
   height: 45%;
-  background-color: #AEA39F ;
+  background-color: #aea39f;
   padding: 5%;
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@ main {
   aspect-ratio: 1;
   background-color: #191818;
   border-radius: 50%;
-  border: 4px solid #60605D;
+  border: 4px solid #60605d;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,7 +68,7 @@ main {
   aspect-ratio: 1;
   background-color: #191818;
   border-radius: 50%;
-  border: 2px solid #60605D;
+  border: 2px solid #60605d;
   display: flex;
   justify-content: center;
 }
@@ -85,7 +85,7 @@ main {
   height: 100%;
   width: 6px;
   background-color: #191818;
-  border: 2px solid #60605D;
+  border: 2px solid #60605d;
   border-top: none;
   border-bottom: none;
 }
@@ -93,14 +93,14 @@ main {
 .knob__button-indicator {
   width: 100%;
   height: 4px;
-  background-color: #60605D;
+  background-color: #60605d;
 }
 
 .knob__indicator {
   height: 4px;
   width: 4px;
   border-radius: 50%;
-  background-color: #60605D;
+  background-color: #60605d;
 }
 
 .indicator-1 {
@@ -162,37 +162,88 @@ main {
 .power-indicator {
   height: 6%;
   width: 20%;
-  background-color: #E41516;
-  border: 2px solid #60605D;
+  background-color: #e41516;
+  border: 2px solid #60605d;
 }
 
 .screen-area {
   width: 80%;
   margin: 3%;
   margin-left: 0;
-  background-color: #3E3933;
-  border: 10px solid #60605D;
-  border-radius: 10px;
+  background-color: #3e3933;
+  border: 10px solid #60605d;
+  border-radius: 1%;
 }
 
-.screen {
-  border: 1px solid black;
+.screen-area__border {
+  width: 100%;
+  height: 100%;
+}
+
+.screen-area__glass {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+  grid-template-rows: 5% 90% 5%;
+}
+
+.screen-area__glass-area {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(223, 242, 242);
+}
+
+.corner-1, .corner-3, .corner-7, .corner-9 {
+  background: none;
+}
+
+.corner-2 {
+  border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
+  border: 8px solid #5d6b6b;
+  border-bottom: none;
+  transform: translateY(15%);
+}
+
+.corner-4 {
+  border-radius: 100% 0% 0% 100% / 50% 50% 50% 50%;
+  border: 8px solid #5d6b6b;
+  border-right: none;
+  transform: translateX(15%);
+}
+
+.corner-5 {
+  border-radius: 4%;
+  z-index: 2;
+}
+
+.corner-6 {
+  border-radius: 0% 100% 100% 0% / 50% 50% 50% 50%;
+  border: 8px solid #5d6b6b;
+  border-left: none;
+  overflow: hidden;
+  transform: translateX(-15%);
+}
+
+.corner-8 {
+  border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
+  border: 8px solid #5d6b6b;
+  border-top: none;
+  overflow: hidden;
+  transform: translateY(-15%);
+}
+
+.screen__image {
   height: 100%;
   aspect-ratio: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  margin-left: auto;
+  margin: 0 auto;
 }
 
-.play-button {
-  width: 120px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.corner {
+.image-corner {
   background: rgba(0, 0, 0, 0);
   display: grid;
   grid-template-columns: repeat(16, 1fr);
@@ -202,3 +253,12 @@ main {
 .box {
   pointer-events: none;
 }
+
+.play-button {
+  width: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
