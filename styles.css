@@ -4,13 +4,24 @@
   box-sizing: border-box;
 }
 
-main {
+body {
   height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: azure;
+}
+
+main {
+  width: 100%;
+  height: 50%;
+  margin: auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5vw;
+  align-items: flex-end;
 }
 
 .tv {
@@ -76,6 +87,10 @@ main {
 
 .rotate-45 {
   transform: rotate(45deg);
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
 }
 
 .rotate-minus-45 {
@@ -272,6 +287,165 @@ main {
   height: 100%;
   margin: 0 auto;
   background-color: #3e3933;
+  border-radius: 0 0 10px 10px;
+}
+
+.snes {
+  width: 25vw;
+  aspect-ratio: 30/9;
+  display: flex;
+  position: relative;
+}
+
+.snes__top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15%;
+  transform: translateY(-100%);
+}
+
+.snes-top__cartridge-slot {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #CED6D3;
+  border-bottom: 2px solid #777784;
+  /* border-radius: 0 0 10px 10px; */
+}
+
+.snes__body {
+  width: 100%;
+  height: 100%;
+  background-color: #CED6D3;
+  clip-path: polygon(2% 0, 98% 0, 100% 50%, 98% 100%, 2% 100%, 0 50%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.snes-body__middle-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  background-color: #777784;
+  transform: translateY(-50%);
+}
+
+.snes-body__power-indicator {
+  position: absolute;
+  height: 10%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid #777784;
+  top: 50%;
+  left: 5%;
+  background-color: #777784;
+  transform: translateY(-50%);
+}
+
+.snes-body__raised-part {
+  height: 110%;
+  aspect-ratio: 0.8;
+  border: 2px solid #777784;
+  background-color: #CED6D3;
+  position: absolute;
+  top: -5%;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.left-part {
+  left: 15%;
+  z-index: 10;
+}
+
+.right-part {
+  right: 15%;
+  z-index: 10;
+}
+
+.snes__purple-button {
+  position: absolute;
+  top: -8%;
+  width: 28%;
+  height: 8%;
+  background-color: #7321BC;
+  z-index: 1;
+}
+
+.left-purple {
+  left: 14%;
+}
+
+.right-purple {
+  right: 14%;
+}
+
+.snes-raised-part__center {
+  width: 100%;
+  height: 33%;
+  border: 2px solid #777784;
+  border-left: none;
+  border-right: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.snes__controller-connector {
+  width: 80%;
+  height: 50%;
+  background-color: #94999D;
+  border: 2px solid #777784;
+  border-radius: 1000px 0 0 1000px;
+  display: flex;
+  align-items: center;
+}
+
+.controller-connector__small-part {
+  border-right: 2px solid #777784;
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.controller-connector__large-part {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.connector__dot {
+  width: 6px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #777784;
+}
+
+.snes__bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15%;
+  transform: translateY(100%);
+}
+
+.snes-bottom__stand {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #777784;
   border-radius: 0 0 10px 10px;
 }
 
