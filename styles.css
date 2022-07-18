@@ -195,7 +195,10 @@ main {
   background-color: rgb(223, 242, 242);
 }
 
-.corner-1, .corner-3, .corner-7, .corner-9 {
+.corner-1,
+.corner-3,
+.corner-7,
+.corner-9 {
   background: none;
 }
 
@@ -260,5 +263,3 @@ main {
   top: 0;
   left: 0;
 }
-
-
