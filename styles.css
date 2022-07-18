@@ -19,6 +19,7 @@ main {
   display: flex;
   background-color: #8d847f;
   border-radius: 1vw 1vw 0 0;
+  position:relative;
 }
 
 .controls {
@@ -255,6 +256,23 @@ main {
 
 .box {
   pointer-events: none;
+}
+
+.tv__bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5%;
+  transform: translateY(100%);
+}
+
+.tv-bottom__stand {
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #3e3933;
+  border-radius: 0 0 10px 10px;
 }
 
 .play-button {
