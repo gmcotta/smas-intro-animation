@@ -1,24 +1,23 @@
-let box = document.createElement('span');
-box.className = 'box';
+let box = document.createElement("span");
+box.className = "box";
 
-const upperLeftScreen = document.querySelector('#upper-left');
-const upperRightScreen = document.querySelector('#upper-right');
-const lowerLeftScreen = document.querySelector('#lower-left');
-const lowerRightScreen = document.querySelector('#lower-right');
+const upperLeftScreen = document.querySelector("#upper-left");
+const upperRightScreen = document.querySelector("#upper-right");
+const lowerLeftScreen = document.querySelector("#lower-left");
+const lowerRightScreen = document.querySelector("#lower-right");
 
 for (let i = 0; i <= 16 * 16 - 1; i++) {
-  upperLeftScreen.appendChild(box.cloneNode(true));
+  upperLeftScreen.appendChild(box.cloneNode(false));
 }
 for (let i = 0; i <= 16 * 16 - 1; i++) {
-  upperRightScreen.appendChild(box.cloneNode(true));
+  upperRightScreen.appendChild(box.cloneNode(false));
 }
 for (let i = 0; i <= 16 * 16 - 1; i++) {
-  lowerLeftScreen.appendChild(box.cloneNode(true));
+  lowerLeftScreen.appendChild(box.cloneNode(false));
 }
 for (let i = 0; i <= 16 * 16 - 1; i++) {
-  lowerRightScreen.appendChild(box.cloneNode(true));
+  lowerRightScreen.appendChild(box.cloneNode(false));
 }
-
 
 const boxAnimationOptions = {
   duration: 0.5,

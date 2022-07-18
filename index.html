@@ -1,30 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Document</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-</head>
-<body>
-  <main>
-    <section class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  </head>
+  <body>
+    <main>
       <section class="tv">
-        <section class="screen">
-          <div id="upper-left" class="corner upper-left"></div>
-          <div id="upper-right" class="corner upper-right"></div>
-          <div id="lower-left" class="corner lower-left"></div>
-          <div id="lower-right" class="corner lower-right"></div>
+        <section class="controls">
+          <div class="speaker-area">
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+            <span class="speaker__grid"></span>
+          </div>
+          <div class="knob-area">
+            <div class="knob">
+              <div class="knob__button rotate-45">
+                <div class="knob__button-holder">
+                  <div class="knob__button-indicator"></div>
+                </div>
+              </div>
+              <span class="knob__indicator indicator-1"></span>
+              <span class="knob__indicator indicator-2"></span>
+              <span class="knob__indicator indicator-3"></span>
+              <span class="knob__indicator indicator-4"></span>
+              <span class="knob__indicator indicator-6"></span>
+              <span class="knob__indicator indicator-7"></span>
+              <span class="knob__indicator indicator-8"></span>
+            </div>
+            <div class="power-indicator"></div>
+            <div class="knob">
+              <div class="knob__button rotate-minus-45">
+                <div class="knob__button-holder">
+                  <div class="knob__button-indicator"></div>
+                </div>
+              </div>
+              <span class="knob__indicator indicator-1"></span>
+              <span class="knob__indicator indicator-2"></span>
+              <span class="knob__indicator indicator-3"></span>
+              <span class="knob__indicator indicator-4"></span>
+              <span class="knob__indicator indicator-6"></span>
+              <span class="knob__indicator indicator-7"></span>
+              <span class="knob__indicator indicator-8"></span>
+            </div>
+          </div>
+        </section>
+        <section class="screen-area">
+          <div class="screen-area__border">
+            <div class="screen-area__glass">
+              <div class="screen-area__glass-area corner-1"></div>
+              <div class="screen-area__glass-area corner-2"></div>
+              <div class="screen-area__glass-area corner-3"></div>
+              <div class="screen-area__glass-area corner-4"></div>
+              <div class="screen-area__glass-area corner-5">
+                <section class="screen__image">
+                  <div id="upper-left" class="image-corner"></div>
+                  <div id="upper-right" class="image-corner"></div>
+                  <div id="lower-left" class="image-corner"></div>
+                  <div id="lower-right" class="image-corner"></div>
+                </section>
+              </div>
+              <div class="screen-area__glass-area corner-6"></div>
+              <div class="screen-area__glass-area corner-7"></div>
+              <div class="screen-area__glass-area corner-8"></div>
+              <div class="screen-area__glass-area corner-9"></div>
+            </div>
+          </div>
+        </section>
+        <section class="tv__bottom">
+          <div class="tv-bottom__stand"></div>
         </section>
       </section>
-    </section>
-    
-  
-    <button class="play-button" type="button">Play animation</button>
-  </main>
-  
-  <script src="script.js"></script>
-</body>
+      <button class="play-button" type="button">Play animation</button>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
 </html>
