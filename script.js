@@ -18,14 +18,14 @@ const tvScreenBottom = document.querySelector('.corner-8');
 const cartridgeFloatingTl = gsap.timeline();
 cartridgeFloatingTl.fromTo(
   cartridge, 
-  { marginBottom: '50%' }, 
-  { marginBottom: '30%', duration: 1, ease: 'power2.easeInOut', repeat: -1, yoyo: true }
+  { bottom: '60%' }, 
+  { bottom: '50%', duration: 1, ease: 'power2.easeInOut', repeat: -1, yoyo: true }
 );
 
 const startAnimation = () => {
   cartridgeFloatingTl.pause();
   const fullTl = gsap.timeline();
-  fullTl.to(cartridge, { marginBottom: '-20%', duration: 1, ease: 'power2.easeInOut' });
+  fullTl.to(cartridge, { bottom: '12%', duration: 1, ease: 'power2.easeInOut' });
   fullTl.to(snesPowerLed, { backgroundColor: '#e41516', duration: 0.5 })
   fullTl.to(
     [tvScreenBottom, tvScreenCenter, tvScreenLeft, tvScreenRight, tvScreenTop], 
