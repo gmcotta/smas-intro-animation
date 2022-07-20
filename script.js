@@ -6,6 +6,34 @@ const upperRightScreen = document.querySelector("#upper-right");
 const lowerLeftScreen = document.querySelector("#lower-left");
 const lowerRightScreen = document.querySelector("#lower-right");
 
+const cartridge = document.querySelector('.cartridge');
+const snesPowerLed = document.querySelector('.snes-body__power-indicator');
+
+const tvScreenTop = document.querySelector('.corner-2');
+const tvScreenLeft = document.querySelector('.corner-4');
+const tvScreenCenter = document.querySelector('.corner-5');
+const tvScreenRight = document.querySelector('.corner-6');
+const tvScreenBottom = document.querySelector('.corner-8');
+
+const cartridgeFloatingTl = gsap.timeline();
+cartridgeFloatingTl.fromTo(
+  cartridge, 
+  { marginBottom: '50%' }, 
+  { marginBottom: '30%', duration: 1, ease: 'power2.easeInOut', repeat: -1, yoyo: true }
+);
+
+const startAnimation = () => {
+  cartridgeFloatingTl.pause();
+  const fullTl = gsap.timeline();
+  fullTl.to(cartridge, { marginBottom: '-20%', duration: 1, ease: 'power2.easeInOut' });
+  fullTl.to(snesPowerLed, { backgroundColor: '#e41516', duration: 0.5 })
+  fullTl.to(
+    [tvScreenBottom, tvScreenCenter, tvScreenLeft, tvScreenRight, tvScreenTop], 
+    { backgroundColor: '#000', duration: 0 }, '<+=0.4')
+}
+
+cartridge.addEventListener('click', startAnimation);
+
 for (let i = 0; i <= 16 * 16 - 1; i++) {
   upperLeftScreen.appendChild(box.cloneNode(false));
 }

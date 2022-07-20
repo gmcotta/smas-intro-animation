@@ -305,16 +305,18 @@ main {
   width: 20vw;
   height: 100%;
   justify-content: flex-end;
-  position: relative;
 }
 
 .cartridge {
-  width: 70%;
+  width: 17vw;
   aspect-ratio: 1.5;
   display: flex;
   align-items: flex-end;
-  position: absolute;
-  top: 40%; /* top: 65% */
+  margin-bottom: 30%;
+}
+
+.cartridge:hover {
+  cursor: pointer;
 }
 
 .cartridge__side {
