@@ -278,7 +278,7 @@ main {
   grid-template-rows: repeat(16, 1fr);
 }
 
-.screen__nintendo {
+.game__splash-screen {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -291,20 +291,20 @@ main {
   justify-content: center;
 }
 
-.screen-nintendo__coin {
+.game-splash-screen__coin {
   margin-top: 10%;
   width: 30%;
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: #DFC027;
-  border: 10px solid #C8900D;
+  border: 5px solid #C8900D;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
-.screen-nintendo-coin__shimmer {
+.game-splash-screen-coin__shimmer {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -314,13 +314,13 @@ main {
   background: rgba(0,0,0,0);
 }
 
-.screen-nintendo-coin__center {
+.game-splash-screen-coin__center {
   width: 25%;
   aspect-ratio: 0.35;
   background-color: #C8900D;
 }
 
-.screen-nintendo__logo {
+.game-splash-screen__logo {
   color: #fff;
   border: 2px solid #fff;
   padding: 4px 10px;
