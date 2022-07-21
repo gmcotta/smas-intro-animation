@@ -15,6 +15,12 @@ const tvScreenCenter = document.querySelector('.corner-5');
 const tvScreenRight = document.querySelector('.corner-6');
 const tvScreenBottom = document.querySelector('.corner-8');
 
+const gameSplashScreenCoin = document.querySelector('.screen-nintendo__coin');
+const gameSplashScreenCoinShimmer = document.querySelector('.screen-nintendo-coin__shimmer');
+const gameSplashScreenLogo = document.querySelector('.screen-nintendo__logo');
+
+gsap.set([gameSplashScreenCoin, gameSplashScreenLogo], { autoAlpha: 0 });
+
 const cartridgeFloatingTl = gsap.timeline();
 cartridgeFloatingTl.fromTo(
   cartridge, 
@@ -29,7 +35,16 @@ const startAnimation = () => {
   fullTl.to(snesPowerLed, { backgroundColor: '#e41516', duration: 0.5 })
   fullTl.to(
     [tvScreenBottom, tvScreenCenter, tvScreenLeft, tvScreenRight, tvScreenTop], 
-    { backgroundColor: '#000', duration: 0 }, '<+=0.4')
+    { backgroundColor: '#000', duration: 0 }, '<+=0.4');
+  fullTl.to([gameSplashScreenCoin, gameSplashScreenLogo], {autoAlpha: 1, duration: 0.5 });
+  fullTl.fromTo(
+    gameSplashScreenCoinShimmer, 
+    { background: 'linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 0% rgba(0,0,0,0) 100%)' },
+    { background: 'linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 1000%, rgba(0,0,0,0) 100%)', duration: 0.3 }
+  );
+  fullTl.set(gameSplashScreenCoinShimmer, { autoAlpha: 0, duration: 0 });
+  fullTl.to([gameSplashScreenCoin, gameSplashScreenLogo], {autoAlpha: 0, duration: 0.5, }, '<+=1');
+
 }
 
 cartridge.addEventListener('click', startAnimation);
