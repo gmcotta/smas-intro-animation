@@ -19,7 +19,15 @@ const gameSplashScreenCoin = document.querySelector('.game-splash-screen__coin')
 const gameSplashScreenCoinShimmer = document.querySelector('.game-splash-screen-coin__shimmer');
 const gameSplashScreenLogo = document.querySelector('.game-splash-screen__logo');
 
-gsap.set([gameSplashScreenCoin, gameSplashScreenLogo], { autoAlpha: 0 });
+gsap.set([gameSplashScreenCoin, gameSplashScreenLogo], { autoAlpha: 0, duration: 0 });
+
+const gameIntroFrame1 = document.querySelector('.frame-1');
+const gameIntroFrame2 = document.querySelector('.frame-2');
+const gameIntroFrame3 = document.querySelector('.frame-3');
+const gameIntroFrame4 = document.querySelector('.frame-4');
+const gameIntroFrame5 = document.querySelector('.frame-5');
+
+gsap.set([gameIntroFrame1, gameIntroFrame2, gameIntroFrame3, gameIntroFrame4, gameIntroFrame5], { autoAlpha: 0, duration: 0 });
 
 const cartridgeFloatingTl = gsap.timeline();
 cartridgeFloatingTl.fromTo(
@@ -45,6 +53,66 @@ const startAnimation = () => {
   );
   mainTl.set(gameSplashScreenCoinShimmer, { autoAlpha: 0, duration: 0 });
   mainTl.to([gameSplashScreenCoin, gameSplashScreenLogo], {autoAlpha: 0, duration: 0.5, }, '<+=1');
+  mainTl.to(gameIntroFrame1, { autoAlpha: 1, duration: 0.4 });
+  mainTl.to(gameIntroFrame2, { autoAlpha: 1, duration: 0.4 });
+  mainTl.to(gameIntroFrame3, { autoAlpha: 1, duration: 0.4 });
+  mainTl.to(gameIntroFrame4, { autoAlpha: 1, duration: 0.4 });
+  mainTl.set([gameIntroFrame2, gameIntroFrame3, gameIntroFrame4, gameIntroFrame5], { autoAlpha: 0, duration: 0 });
+  mainTl.to(gameIntroFrame1, { autoAlpha: 1, duration: 0.4 });
+  mainTl.to(gameIntroFrame2, { autoAlpha: 1, duration: 0.4 });
+  mainTl.to(gameIntroFrame3, { autoAlpha: 1, duration: 0.4 });
+  mainTl.to(gameIntroFrame4, { autoAlpha: 1, duration: 0.4 });
+  mainTl.set([gameIntroFrame2, gameIntroFrame3, gameIntroFrame4, gameIntroFrame5], { autoAlpha: 0, duration: 0 });
+  mainTl.to(gameIntroFrame1, { autoAlpha: 1, duration: 0.4 });
+  mainTl.to(gameIntroFrame2, { autoAlpha: 1, duration: 0.4 });
+  mainTl.to(gameIntroFrame3, { autoAlpha: 1, duration: 0.4 });
+  mainTl.to(gameIntroFrame4, { autoAlpha: 1, duration: 0.4 });
+  mainTl.to(gameIntroFrame5, { autoAlpha: 1, duration: 0.4 });
+  mainTl.set([gameIntroFrame1, gameIntroFrame2, gameIntroFrame3, gameIntroFrame4], { autoAlpha: 0, duration: 0 }, '<+=2');
+  mainTl.set([upperLeftScreen, upperRightScreen, lowerLeftScreen, lowerRightScreen], { zIndex: 20, duration: 0 });
+  mainTl.fromTo(
+    "#upper-left span.box",
+    {
+      background: "linear-gradient(-45deg, rgba(0,0,0,0) 100%, rgba(0,0,0,1) 0%)",
+    },
+    {
+      background: "linear-gradient(-45deg,   rgba(0,0,0,0) 0%, rgba(0,0,0,1) 0%)",
+      ...boxAnimationOptions,
+    }
+  );
+  mainTl.fromTo(
+    "#upper-right span.box",
+    {
+      background: "linear-gradient(-45deg, rgba(0,0,0,0) 100%, rgba(0,0,0,1) 0%)",
+    },
+    {
+      background: "linear-gradient(-45deg,   rgba(0,0,0,0) 0%, rgba(0,0,0,1) 0%)",
+      ...boxAnimationOptions,
+    },
+    "<"
+  );
+  mainTl.fromTo(
+    "#lower-left span.box",
+    {
+      background: "linear-gradient(-45deg, rgba(0,0,0,0) 100%, rgba(0,0,0,1) 0%)",
+    },
+    {
+      background: "linear-gradient(-45deg,   rgba(0,0,0,0) 0%, rgba(0,0,0,1) 0%)",
+      ...boxAnimationOptions,
+    },
+    "<"
+  );
+  mainTl.fromTo(
+    "#lower-right span.box",
+    {
+      background: "linear-gradient(-45deg, rgba(0,0,0,0) 100%, rgba(0,0,0,1) 0%)",
+    },
+    {
+      background: "linear-gradient(-45deg,   rgba(0,0,0,0) 0%, rgba(0,0,0,1) 0%)",
+      ...boxAnimationOptions,
+    },
+    "<"
+  );
 
 }
 
