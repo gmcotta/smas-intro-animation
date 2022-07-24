@@ -93,8 +93,8 @@ gsap.set([gameSelectScreen, gameSelectCarousel], { autoAlpha: 0, duration: 0 })
 const cartridgeFloatingTl = gsap.timeline();
 cartridgeFloatingTl.fromTo(
   cartridge, 
-  { bottom: '60%' }, 
-  { bottom: '50%', duration: 1, ease: 'power2.easeInOut', repeat: -1, yoyo: true }
+  { top: 0 }, 
+  { top: '6rem', duration: 1, ease: 'sine.inOut', repeat: -1, yoyo: true }
 );
 
 // main timeline
@@ -102,7 +102,8 @@ const startAnimation = () => {
   // connect cartridge
   cartridgeFloatingTl.pause();
   const mainTl = gsap.timeline();
-  mainTl.to(cartridge, { bottom: '12%', duration: 1, ease: 'power2.easeInOut' });
+  gsap.killTweensOf(cartridge);
+  mainTl.to(cartridge, { top: '20rem', duration: 1, ease: 'linear' });
   
   // turn SNES and TV on
   mainTl.to(snesPowerLed, { backgroundColor: '#e41516', duration: 0.5 })

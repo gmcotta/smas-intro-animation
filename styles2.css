@@ -511,8 +511,11 @@ main {
 .cartridge {
   width: 30rem;
   height: 20rem;
-  
   position: relative;
+}
+
+.cartridge:hover {
+  cursor: pointer;
 }
 
 .cartridge__body {
@@ -520,9 +523,72 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100%;;
+  display: flex;
+  align-items: flex-end;
+}
 
+.cartridge__side {
+  height: 95%;
+  width: 15%;
+  background-color: var(--color-cartridge-secondary-dark);
+  border-radius: 2px 0 0 2px;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 2px;
+  position: relative;
+}
+
+.cartridge-side__part {
+  height: 100%;
+  background-color: var(--color-cartridge-secondary);
+}
+
+.cartridge-side__hole {
+  width: 20%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--color-cartridge-secondary-dark);
+  position: absolute;
+  bottom: 5%;
+  right: 25%;
+}
+
+.cartridge__center {
+  height: 100%;
+  width: 70%;
   background-color: var(--color-cartrigde-primary);
+  border-radius: 2px 2px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartridge-center__label {
+  width: 90%;
+}
+
+.cartridge-center__lower-part {
+  width: 90%;
+  height: 40%;
+  border: 2px solid var(--color-cartridge-secondary-dark);
+  background-color: var(--color-cartridge-secondary);
+
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+}
+
+.cartridge-center__lower-part::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 60%;
+  background-color: var(--color-cartridge-secondary-dark);
 }
 
 .snes {
