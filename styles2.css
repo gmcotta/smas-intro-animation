@@ -22,6 +22,26 @@
   --color-snes-button: #7321bc;
 }
 
+.rotate-45 {
+  transform: rotate(45deg);
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.rotate-minus-45 {
+  transform: rotate(-45deg);
+}
+
+.flip-x {
+  transform: scale(-1, 1);
+}
+
+.flip-y {
+  transform: scale(1, -1);
+}
+
 html {
   font-size: calc((100vw / 1920) * 10);
 }
@@ -91,15 +111,139 @@ main {
 .tv-body__controls {
   display: flex;
   flex-direction: column;
-  background-color: red;
-  width: 20%;
+  width: 15%;
   height: 100%;
+}
+
+.tv-controls__speaker-area {
+  width: 100%;
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+}
+
+.tv-speaker-area__speaker-grid {
+  background-color: var(--color-black-pure);
+  height: 2%;
+  width: 100%;
+}
+
+.tv-controls__knobs-area {
+  width: 100%;
+  height: 45%;
+  background-color: var(--color-tv-secondary);
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tv-knobs-area__knob {
+  width: 65%;
+  aspect-ratio: 1;
+  background-color: var(--color-black-900);
+  border-radius: 50%;
+  border: 0.4rem solid var(--color-tv-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.tv-knob__knob-button {
+  width: 60%;
+  aspect-ratio: 1;
+  background-color: var(--color-black-900);
+  border-radius: 50%;
+  border: 0.2rem solid var(--color-tv-border);
+  display: flex;
+  justify-content: center;
+}
+
+.tv-knob-button__button-holder {
+  height: 100%;
+  width: 0.6rem;
+  background-color: var(--color-black-900);
+  border: 0.2rem solid var(--color-tv-border);
+  border-top: none;
+  border-bottom: none;
+}
+
+.tv-knob-button__button-indicator {
+  width: 100%;
+  height: 0.4rem;
+  background-color: var(--color-tv-border);
+}
+
+.tv-knob__indicator {
+  height: 0.4rem;
+  width: 0.4rem;
+  border-radius: 50%;
+  background-color: var(--color-tv-border);
+  position: absolute;
+}
+
+.indicator-1 {
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.indicator-2 {
+  top: 25%;
+  left: 25%;
+  transform: translate(-100%, -100%);
+}
+
+.indicator-3 {
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.indicator-4 {
+  bottom: 25%;
+  left: 25%;
+  transform: translate(-100%, 100%);
+}
+
+.indicator-5 {
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.indicator-6 {
+  bottom: 25%;
+  right: 25%;
+  transform: translate(100%, 100%);
+}
+
+.indicator-7 {
+  top: 50%;
+  right: 10%;
+  transform: translate(50%, -50%);
+}
+
+.indicator-8 {
+  top: 25%;
+  right: 25%;
+  transform: translate(100%, -100%);
+}
+
+.tv-knobs-area__power-indicator {
+  height: 6%;
+  width: 20%;
+  background-color: var(--color-tv-power-indicator);
+  border: 0.2rem solid var(--color-tv-border);
 }
 
 .tv-body__screen-area {
   display: flex;
   background-color: blue;
-  width: 80%;
+  width: 85%;
   height: 100%;
 }
 
