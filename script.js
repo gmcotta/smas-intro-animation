@@ -86,6 +86,7 @@ gsap.set([gameIntroFrame1, gameIntroFrame2, gameIntroFrame3, gameIntroFrame4, ga
 // game select screen config
 const gameSelectScreen = document.querySelector('.game__select-game-screen');
 const gameSelectCarousel = document.querySelector('.game-select-game-screen-games-container__carousel');
+
 gsap.set([gameSelectScreen, gameSelectCarousel], { autoAlpha: 0, duration: 0 })
 
 // cartridge floating animation
