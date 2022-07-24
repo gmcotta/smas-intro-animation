@@ -83,6 +83,11 @@ const gameIntroFrame5 = document.querySelector('.frame-5');
 
 gsap.set([gameIntroFrame1, gameIntroFrame2, gameIntroFrame3, gameIntroFrame4, gameIntroFrame5], { autoAlpha: 0, duration: 0 });
 
+// game select screen config
+const gameSelectScreen = document.querySelector('.game__select-game-screen');
+const gameSelectCarousel = document.querySelector('.game-select-game-screen-games-container__carousel');
+gsap.set([gameSelectScreen, gameSelectCarousel], { autoAlpha: 0, duration: 0 })
+
 // cartridge floating animation
 const cartridgeFloatingTl = gsap.timeline();
 cartridgeFloatingTl.fromTo(
@@ -154,7 +159,7 @@ const startAnimation = () => {
     );
   }
 
-  mainTl.call(() => null, [], '<+=1');
+  mainTl.set([gameSelectScreen, gameSelectCarousel], { autoAlpha: 1, duration: 0 }, '<+=1.5');
 
   for (let j = GRID_NUMBER - 1; j >= 0; j--) {
     let boxes = [];
@@ -176,6 +181,14 @@ const startAnimation = () => {
       introTransitionBoxesDuration
     );
   }
+
+  // select game
+  mainTl.to(gameSelectCarousel, { x: '-25%', duration: 1, ease: 'none' })
+  mainTl.to(gameSelectCarousel, { x: '-42%', duration: 1, ease: 'none' }, '<+=1.5')
+  mainTl.to(gameSelectCarousel, { x: '-59%', duration: 1, ease: 'none' }, '<+=1.5')
+  mainTl.to(gameSelectCarousel, { x: '-42%', duration: 1, ease: 'none' }, '<+=1.5')
+  mainTl.to(gameSelectCarousel, { x: '-25%', duration: 1, ease: 'none' }, '<+=1.5')
+  mainTl.to(gameSelectCarousel, { x: '-8%', duration: 1, ease: 'none' }, '<+=1.5')
 }
 
 cartridge.addEventListener('click', startAnimation);
