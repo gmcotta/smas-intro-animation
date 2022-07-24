@@ -500,7 +500,7 @@ main {
 
 .right-side {
   width: 40rem;
-  height: 50rem;
+  height: 45rem;
   background-color: blue;
   display: flex;
   flex-direction: column;
@@ -593,7 +593,7 @@ main {
 
 .snes {
   width: 40rem;
-  height: 20rem;
+  height: 15rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -603,15 +603,123 @@ main {
 }
 
 .snes__cartridge-slot {
-  width: 95%;
   height: 2rem;
+  width: 90%;
   background-color: var(--color-snes-primary);
+  border-bottom: 0.2rem solid var(--color-snes-border);
 }
 
 .snes__body {
   width: 100%;
-  height: 17rem;
+  height: 12rem;
   background-color: var(--color-snes-primary);
+  clip-path: polygon(2% 0, 98% 0, 100% 50%, 98% 100%, 2% 100%, 0 50%);
+}
+
+.snes-body__middle-line {
+  position: absolute;
+  width: 100%;
+  height: 0.2rem;
+  top: 50%;
+  left: 0;
+  background-color: var(--color-snes-border);
+  transform: translateY(-50%);
+}
+
+.snes-body__power-indicator {
+  position: absolute;
+  height: 10%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 0.2rem solid var(--color-snes-border);
+  top: 50%;
+  left: 5%;
+  background-color: var(--color-snes-border);
+  transform: translateY(-50%);
+}
+
+.snes-body__raised-part {
+  width: 25%;
+  aspect-ratio: 0.8;
+  border: 2px solid var(--color-snes-border);
+  background-color: var(--color-snes-primary);
+  position: absolute;
+  top: 10%;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.left-part {
+  left: 15%;
+  z-index: 10;
+}
+
+.right-part {
+  right: 15%;
+  z-index: 10;
+}
+
+.snes__purple-button {
+  position: absolute;
+  top: 6%;
+  width: 27%;
+  height: 8%;
+  background-color: var(--color-snes-button);
+  z-index: 1;
+}
+
+.left-purple {
+  left: 14%;
+}
+
+.right-purple {
+  right: 14%;
+}
+
+.snes-raised-part__center {
+  width: 100%;
+  height: 33%;
+  border: 2px solid var(--color-snes-border);
+  border-left: none;
+  border-right: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.snes__controller-connector {
+  width: 80%;
+  height: 50%;
+  background-color: var(--color-snes-secondary);
+  border: 2px solid var(--color-snes-border);
+  border-radius: 1000px 0 0 1000px;
+  display: flex;
+  align-items: center;
+}
+
+.controller-connector__small-part {
+  border-right: 2px solid var(--color-snes-border);
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.controller-connector__large-part {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.connector__dot {
+  width: 6px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--color-snes-border);
 }
 
 .snes__stand {
