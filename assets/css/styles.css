@@ -1,27 +1,25 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: azure;
-}
-
-main {
-  width: 100%;
-  height: 50%;
-  margin: auto 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5vw;
-  align-items: flex-end;
+:root {
+  --color-white-pure: #fff;
+  --color-black-pure: #000;
+  --color-black-900: #191818;
+  --color-tv-primary: #8d847f;
+  --color-tv-secondary: #aea39f;
+  --color-tv-border: #60605d;
+  --color-tv-primary-dark: #3e3933;
+  --color-tv-glass-off: #a6aeb1;
+  --color-tv-glass-border: #5d6b6b;
+  --color-tv-power-indicator: #e41516;
+  --color-game-splash-screen-coin: #dfc027;
+  --color-game-splash-screen-coin-border: #c8900d;
+  --color-game-select-game-screen-background: #396eb4;
+  --color-game-select-game-screen-title: #dfc027;
+  --color-cartrigde-primary: #8c868a;
+  --color-cartridge-secondary: #706f6d;
+  --color-cartridge-secondary-dark: #4a4947;
+  --color-snes-primary: #ced6d3;
+  --color-snes-secondary: #94999d;
+  --color-snes-border: #777784;
+  --color-snes-button: #7321bc;
 }
 
 .rotate-45 {
@@ -44,38 +42,97 @@ main {
   transform: scale(1, -1);
 }
 
-.tv {
-  width: 50vw;
-  aspect-ratio: 16/9;
-  display: flex;
-  background-color: #8d847f;
-  border-radius: 1vw 1vw 0 0;
-  position:relative;
+html {
+  font-size: calc((100vw / 1920) * 10);
 }
 
-.controls {
-  width: 20%;
-  padding: 4% 3%;
+/* @media (max-width: 1024px) {
+  html {
+    font-size: calc((100vw / 1024) * 10);
+  }
+}
+
+@media (max-width: 428px) {
+  html {
+    font-size: calc((100vw / 428) * 10);
+  }
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: azure;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  column-gap: 10rem;
+  align-items: flex-end;
+}
+
+@media (orientation: portrait) {
+  main {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+.tv {
+  width: 80rem;
+  height: 45rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.speaker-area {
+.tv__body {
+  width: 100%;
+  height: 43rem;
+  background-color: var(--color-tv-primary);
+  border-radius: 1rem 1rem 0 0;
+  padding: 2rem;
+  display: flex;
+  column-gap: 2rem;
+}
+
+.tv-body__controls {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  height: 100%;
+}
+
+.tv-controls__speaker-area {
+  width: 100%;
   height: 55%;
   display: flex;
   flex-direction: column;
   gap: 2%;
 }
 
-.speaker__grid {
-  background-color: #000;
+.tv-speaker-area__speaker-grid {
+  background-color: var(--color-black-pure);
   height: 2%;
   width: 100%;
 }
 
-.knob-area {
+.tv-controls__knobs-area {
+  width: 100%;
   height: 45%;
-  background-color: #aea39f;
+  background-color: var(--color-tv-secondary);
   padding: 5%;
   display: flex;
   flex-direction: column;
@@ -83,128 +140,119 @@ main {
   justify-content: space-between;
 }
 
-.knob {
+.tv-knobs-area__knob {
   width: 65%;
   aspect-ratio: 1;
-  background-color: #191818;
+  background-color: var(--color-black-900);
   border-radius: 50%;
-  border: 4px solid #60605d;
+  border: 0.4rem solid var(--color-tv-border);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
-.knob__button {
+.tv-knob__knob-button {
   width: 60%;
   aspect-ratio: 1;
-  background-color: #191818;
+  background-color: var(--color-black-900);
   border-radius: 50%;
-  border: 2px solid #60605d;
+  border: 0.2rem solid var(--color-tv-border);
   display: flex;
   justify-content: center;
 }
 
-.knob__button-holder {
+.tv-knob-button__button-holder {
   height: 100%;
-  width: 6px;
-  background-color: #191818;
-  border: 2px solid #60605d;
+  width: 0.6rem;
+  background-color: var(--color-black-900);
+  border: 0.2rem solid var(--color-tv-border);
   border-top: none;
   border-bottom: none;
 }
 
-.knob__button-indicator {
+.tv-knob-button__button-indicator {
   width: 100%;
-  height: 4px;
-  background-color: #60605d;
+  height: 0.4rem;
+  background-color: var(--color-tv-border);
 }
 
-.knob__indicator {
-  height: 4px;
-  width: 4px;
+.tv-knob__indicator {
+  height: 0.4rem;
+  width: 0.4rem;
   border-radius: 50%;
-  background-color: #60605d;
+  background-color: var(--color-tv-border);
+  position: absolute;
 }
 
 .indicator-1 {
-  position: absolute;
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .indicator-2 {
-  position: absolute;
   top: 25%;
   left: 25%;
   transform: translate(-100%, -100%);
 }
 
 .indicator-3 {
-  position: absolute;
   top: 50%;
   left: 10%;
   transform: translate(-50%, -50%);
 }
 
 .indicator-4 {
-  position: absolute;
   bottom: 25%;
   left: 25%;
   transform: translate(-100%, 100%);
 }
 
 .indicator-5 {
-  position: absolute;
   bottom: 10%;
   left: 50%;
   transform: translate(-50%, 50%);
 }
 
 .indicator-6 {
-  position: absolute;
   bottom: 25%;
   right: 25%;
   transform: translate(100%, 100%);
 }
 
 .indicator-7 {
-  position: absolute;
   top: 50%;
   right: 10%;
   transform: translate(50%, -50%);
 }
 
 .indicator-8 {
-  position: absolute;
   top: 25%;
   right: 25%;
   transform: translate(100%, -100%);
 }
 
-.power-indicator {
+.tv-knobs-area__power-indicator {
   height: 6%;
   width: 20%;
-  background-color: #e41516;
-  border: 2px solid #60605d;
+  background-color: var(--color-tv-power-indicator);
+  border: 0.2rem solid var(--color-tv-border);
 }
 
-.screen-area {
-  width: 80%;
-  margin: 3%;
-  margin-left: 0;
-  background-color: #3e3933;
-  border: 10px solid #60605d;
-  border-radius: 1%;
+.tv-body__screen-area {
+  display: flex;
+  background-color: var(--color-tv-primary-dark);
+  width: 85%;
+  height: 100%;
 }
 
-.screen-area__border {
+.tv-screen-area__border {
   width: 100%;
   height: 100%;
 }
 
-.screen-area__glass {
+.tv-screen-area__glass {
   width: 100%;
   height: 100%;
   display: grid;
@@ -212,11 +260,11 @@ main {
   grid-template-rows: 5% 90% 5%;
 }
 
-.screen-area__glass-area {
+.tv-glass {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: rgb(223, 242, 242);
+  background-color: var(--color-tv-glass-off);
 }
 
 .corner-1,
@@ -228,26 +276,26 @@ main {
 
 .corner-2 {
   border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
-  border: 8px solid #5d6b6b;
+  border: 8px solid var(--color-tv-glass-border);
   border-bottom: none;
   transform: translateY(15%);
 }
 
 .corner-4 {
   border-radius: 100% 0% 0% 100% / 50% 50% 50% 50%;
-  border: 8px solid #5d6b6b;
+  border: 8px solid var(--color-tv-glass-border);
   border-right: none;
   transform: translateX(15%);
 }
 
 .corner-5 {
-  border-radius: 4%;
+  border-radius: 1.4rem;
   z-index: 2;
 }
 
 .corner-6 {
   border-radius: 0% 100% 100% 0% / 50% 50% 50% 50%;
-  border: 8px solid #5d6b6b;
+  border: 8px solid var(--color-tv-glass-border);
   border-left: none;
   overflow: hidden;
   transform: translateX(-15%);
@@ -255,13 +303,13 @@ main {
 
 .corner-8 {
   border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
-  border: 8px solid #5d6b6b;
+  border: 8px solid var(--color-tv-glass-border);
   border-top: none;
   overflow: hidden;
   transform: translateY(-15%);
 }
 
-.screen__image {
+.tv-screen__container {
   height: 100%;
   aspect-ratio: 1;
   display: grid;
@@ -269,13 +317,6 @@ main {
   grid-template-rows: 1fr 1fr;
   margin: 0 auto;
   position: relative;
-}
-
-.image-corner {
-  background: rgba(0, 0, 0, 0);
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(16, 1fr);
 }
 
 .game__splash-screen {
@@ -296,8 +337,8 @@ main {
   width: 30%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background-color: #DFC027;
-  border: 5px solid #C8900D;
+  background-color: var(--color-game-splash-screen-coin);
+  border: 5px solid var(--color-game-splash-screen-coin-border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -317,15 +358,47 @@ main {
 .game-splash-screen-coin__center {
   width: 25%;
   aspect-ratio: 0.35;
-  background-color: #C8900D;
+  background-color: var(--color-game-splash-screen-coin-border);
 }
 
 .game-splash-screen__logo {
   color: #fff;
   border: 2px solid #fff;
-  padding: 4px 10px;
+  padding: 0 14px;
   border-radius: 10000px;
   margin-top: 4%;
+  font-family: 'VT323', monospace;
+  font-size: 1.4vw;
+}
+
+.game__intro-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+.game__intro-screen img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.game-intro-transition__image-corner {
+  background: rgba(0, 0, 0, 0);
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
+
+.box {
+  pointer-events: none;
 }
 
 .game__select-game-screen {
@@ -334,7 +407,7 @@ main {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #396EB4;
+  background-color: var(--color-game-select-game-screen-background);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -358,16 +431,16 @@ main {
   font-family: 'Limelight', cursive;
   text-transform: uppercase;
   font-size: 1.5vw;
-  color: yellow;
-  border: 2px solid white;
+  color: var(--color-game-select-game-screen-title);
+  border: 2px solid var(--color-white-pure);
   border-radius: 1000px;
-  background-color: black;
+  background-color: var(--color-black-pure);
   padding: 0 16px;
 }
 
 .game-select-game-screen-title-container__arrow {
-  border: 2px solid white;
-  background-color: yellow;
+  border: 2px solid var(--color-white-pure);
+  background-color: var(--color-game-select-game-screen-title);
   width: 25%;
   aspect-ratio: 2;
   clip-path: polygon(0% 0, 100% 0, 50% 100%);
@@ -406,87 +479,58 @@ main {
   margin-top: 10px;
   font-family: 'VT323', monospace;
   text-align: center;
+  color: var(--color-game-select-game-screen-title);
+  text-transform: uppercase;
 }
 
 .game-select-game-screen__game h4 {
-  color: yellow;
-  text-transform: uppercase;
   font-size: 1.2vw;
 }
 
 .game-select-game-screen__game p {
-  color: yellow;
-  text-transform: uppercase;
   font-size: 0.9vw;
 }
 
-.game__intro-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  display: flex;
-  align-items: center;
-}
-
-.game__intro-screen img {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.box {
-  pointer-events: none;
-}
-
-.tv__bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 5%;
-  transform: translateY(100%);
-}
-
-.tv-bottom__stand {
+.tv__stand {
   width: 95%;
-  height: 100%;
-  margin: 0 auto;
-  background-color: #3e3933;
-  border-radius: 0 0 10px 10px;
+  height: 2rem;
+  background-color: var(--color-tv-primary-dark);
+  border-radius: 0 0 1rem 1rem;
 }
 
 .right-side {
+  width: 40rem;
+  height: 45rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20vw;
-  height: 100%;
-  justify-content: flex-end;
-  position: relative;
+  justify-content: space-between;
 }
 
 .cartridge {
-  width: 17vw;
-  aspect-ratio: 1.5;
-  display: flex;
-  align-items: flex-end;
-  position: absolute;
-  bottom: 60%;
+  width: 30rem;
+  height: 20rem;
+  position: relative;
 }
 
 .cartridge:hover {
   cursor: pointer;
 }
 
+.cartridge__body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;;
+  display: flex;
+  align-items: flex-end;
+}
+
 .cartridge__side {
   height: 95%;
   width: 15%;
-  background-color: #4A4947;
+  background-color: var(--color-cartridge-secondary-dark);
   border-radius: 2px 0 0 2px;
   display: grid;
   grid-template-rows: repeat(6, 1fr);
@@ -496,14 +540,14 @@ main {
 
 .cartridge-side__part {
   height: 100%;
-  background-color: #706F6D;
+  background-color: var(--color-cartridge-secondary);
 }
 
 .cartridge-side__hole {
   width: 20%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background-color: #4A4947;
+  background-color: var(--color-cartridge-secondary-dark);
   position: absolute;
   bottom: 5%;
   right: 25%;
@@ -512,7 +556,7 @@ main {
 .cartridge__center {
   height: 100%;
   width: 70%;
-  background-color: #8C868A;
+  background-color: var(--color-cartrigde-primary);
   border-radius: 2px 2px 0 0;
   display: flex;
   flex-direction: column;
@@ -527,8 +571,8 @@ main {
 .cartridge-center__lower-part {
   width: 90%;
   height: 40%;
-  border: 2px solid #4A4947;
-  background-color: #706F6D;
+  border: 2px solid var(--color-cartridge-secondary-dark);
+  background-color: var(--color-cartridge-secondary);
 
   border-bottom: none;
   border-radius: 4px 4px 0 0;
@@ -543,52 +587,41 @@ main {
   transform: translateX(-50%);
   width: 40%;
   height: 60%;
-  background-color: #4A4947;
+  background-color: var(--color-cartridge-secondary-dark);
 }
 
 .snes {
-  width: 25vw;
-  aspect-ratio: 30/9;
+  width: 40rem;
+  height: 15rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
   position: relative;
 }
 
-.snes__top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 15%;
-  transform: translateY(-100%);
-}
-
-.snes-top__cartridge-slot {
+.snes__cartridge-slot {
+  height: 2rem;
   width: 90%;
-  height: 100%;
-  margin: 0 auto;
-  background-color: #CED6D3;
-  border-bottom: 2px solid #777784;
-  /* border-radius: 0 0 10px 10px; */
+  background-color: var(--color-snes-primary);
+  border-bottom: 0.2rem solid var(--color-snes-border);
 }
 
 .snes__body {
   width: 100%;
-  height: 100%;
-  background-color: #CED6D3;
+  height: 12rem;
+  background-color: var(--color-snes-primary);
   clip-path: polygon(2% 0, 98% 0, 100% 50%, 98% 100%, 2% 100%, 0 50%);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .snes-body__middle-line {
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: 0.2rem;
   top: 50%;
   left: 0;
-  background-color: #777784;
+  background-color: var(--color-snes-border);
   transform: translateY(-50%);
 }
 
@@ -597,20 +630,20 @@ main {
   height: 10%;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 2px solid #777784;
+  border: 0.2rem solid var(--color-snes-border);
   top: 50%;
   left: 5%;
-  background-color: #777784;
+  background-color: var(--color-snes-border);
   transform: translateY(-50%);
 }
 
 .snes-body__raised-part {
-  width: 26%;
+  width: 25%;
   aspect-ratio: 0.8;
-  border: 2px solid #777784;
-  background-color: #CED6D3;
+  border: 2px solid var(--color-snes-border);
+  background-color: var(--color-snes-primary);
   position: absolute;
-  top: -5%;
+  top: 10%;
   display: flex;
   align-items: center;
   z-index: 10;
@@ -628,10 +661,10 @@ main {
 
 .snes__purple-button {
   position: absolute;
-  top: -8%;
-  width: 28%;
+  top: 6%;
+  width: 27%;
   height: 8%;
-  background-color: #7321BC;
+  background-color: var(--color-snes-button);
   z-index: 1;
 }
 
@@ -646,7 +679,7 @@ main {
 .snes-raised-part__center {
   width: 100%;
   height: 33%;
-  border: 2px solid #777784;
+  border: 2px solid var(--color-snes-border);
   border-left: none;
   border-right: none;
   display: flex;
@@ -657,15 +690,15 @@ main {
 .snes__controller-connector {
   width: 80%;
   height: 50%;
-  background-color: #94999D;
-  border: 2px solid #777784;
+  background-color: var(--color-snes-secondary);
+  border: 2px solid var(--color-snes-border);
   border-radius: 1000px 0 0 1000px;
   display: flex;
   align-items: center;
 }
 
 .controller-connector__small-part {
-  border-right: 2px solid #777784;
+  border-right: 2px solid var(--color-snes-border);
   width: 45%;
   height: 100%;
   display: flex;
@@ -685,29 +718,11 @@ main {
   width: 6px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background-color: #777784;
+  background-color: var(--color-snes-border);
 }
 
-.snes__bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 15%;
-  transform: translateY(100%);
-}
-
-.snes-bottom__stand {
-  width: 90%;
-  height: 100%;
-  margin: 0 auto;
-  background-color: #777784;
-  border-radius: 0 0 10px 10px;
-}
-
-.play-button {
-  width: 120px;
-  position: absolute;
-  top: 0;
-  left: 0;
+.snes__stand {
+  width: 95%;
+  height: 1rem;
+  background-color: var(--color-snes-border);
 }

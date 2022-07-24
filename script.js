@@ -86,14 +86,15 @@ gsap.set([gameIntroFrame1, gameIntroFrame2, gameIntroFrame3, gameIntroFrame4, ga
 // game select screen config
 const gameSelectScreen = document.querySelector('.game__select-game-screen');
 const gameSelectCarousel = document.querySelector('.game-select-game-screen-games-container__carousel');
+
 gsap.set([gameSelectScreen, gameSelectCarousel], { autoAlpha: 0, duration: 0 })
 
 // cartridge floating animation
 const cartridgeFloatingTl = gsap.timeline();
 cartridgeFloatingTl.fromTo(
   cartridge, 
-  { bottom: '60%' }, 
-  { bottom: '50%', duration: 1, ease: 'power2.easeInOut', repeat: -1, yoyo: true }
+  { top: 0 }, 
+  { top: '6rem', duration: 1, ease: 'sine.inOut', repeat: -1, yoyo: true }
 );
 
 // main timeline
@@ -101,7 +102,8 @@ const startAnimation = () => {
   // connect cartridge
   cartridgeFloatingTl.pause();
   const mainTl = gsap.timeline();
-  mainTl.to(cartridge, { bottom: '12%', duration: 1, ease: 'power2.easeInOut' });
+  gsap.killTweensOf(cartridge);
+  mainTl.to(cartridge, { top: '20rem', duration: 1, ease: 'linear' });
   
   // turn SNES and TV on
   mainTl.to(snesPowerLed, { backgroundColor: '#e41516', duration: 0.5 })
@@ -192,84 +194,3 @@ const startAnimation = () => {
 }
 
 cartridge.addEventListener('click', startAnimation);
-
-
-// intro transition debug
-const button = document.querySelector(".play-button");
-button.addEventListener("click", () => {
-  const tl = gsap.timeline({ 
-    paused: true,
-    // onUpdate: () => console.log(tl.progress()) 
-  });
-
-  for (let j = 0; j <= GRID_NUMBER - 1; j++) {
-    // console.log(`stage-${j + 1}`);
-    let boxes = [];
-    for (let i = 1; i <= GRID_NUMBER - j; i++) {
-      // console.log(
-      //   i,
-      //   i + (gridNumber * j + j),
-      //   (i - 1) * (gridNumber - 1) + (i + (gridNumber * j + j))
-      // )
-      boxes.push(
-        `#upper-left span.box:nth-child(${i + (GRID_NUMBER * j + j)})`,
-        `#upper-left span.box:nth-child(${(i - 1) * (GRID_NUMBER - 1) + (i + (GRID_NUMBER * j + j))})`,
-        `#upper-right span.box:nth-child(${i + (GRID_NUMBER * j + j)})`,
-        `#upper-right span.box:nth-child(${(i - 1) * (GRID_NUMBER - 1) + (i + (GRID_NUMBER * j + j))})`,
-        `#lower-left span.box:nth-child(${i + (GRID_NUMBER * j + j)})`,
-        `#lower-left span.box:nth-child(${(i - 1) * (GRID_NUMBER - 1) + (i + (GRID_NUMBER * j + j))})`,
-        `#lower-right span.box:nth-child(${i + (GRID_NUMBER * j + j)})`,
-        `#lower-right span.box:nth-child(${(i - 1) * (GRID_NUMBER - 1) + (i + (GRID_NUMBER * j + j))})`
-      );
-    }
-    tl.fromTo(
-      boxes,
-      introTransitionFadeInFromParameters,
-      introTransitionFadeInToParameters,
-      introTransitionBoxesDuration
-    );
-  }
-
-  tl.call(() => null, [], '<+=1');
-
-  for (let j = GRID_NUMBER - 1; j >= 0; j--) {
-    console.log(j)
-    // console.log(`stage-${j + 1}`);
-    let boxes = [];
-    for (let i = GRID_NUMBER - j; i >= 1; i--) {
-      // console.log(i)
-      // console.log(
-      //   i,
-      //   i + (gridNumber * j + j),
-      //   (i - 1) * (gridNumber - 1) + (i + (gridNumber * j + j))
-      // )
-      boxes.push(
-        `#upper-left span.box:nth-child(${i + (GRID_NUMBER * j + j)})`,
-        `#upper-left span.box:nth-child(${(i - 1) * (GRID_NUMBER - 1) + (i + (GRID_NUMBER * j + j))})`,
-        `#upper-right span.box:nth-child(${i + (GRID_NUMBER * j + j)})`,
-        `#upper-right span.box:nth-child(${(i - 1) * (GRID_NUMBER - 1) + (i + (GRID_NUMBER * j + j))})`,
-        `#lower-left span.box:nth-child(${i + (GRID_NUMBER * j + j)})`,
-        `#lower-left span.box:nth-child(${(i - 1) * (GRID_NUMBER - 1) + (i + (GRID_NUMBER * j + j))})`,
-        `#lower-right span.box:nth-child(${i + (GRID_NUMBER * j + j)})`,
-        `#lower-right span.box:nth-child(${(i - 1) * (GRID_NUMBER - 1) + (i + (GRID_NUMBER * j + j))})`
-      );
-    }
-    tl.to(
-      boxes,
-      introTransitionFadeOutToParameters,
-      introTransitionBoxesDuration
-    );
-  }
-
-  // tl.call(() => {
-  //   tl.reverse();
-  // }, [], '+=0.5');
-
-  if (tl.paused()) {
-    tl.play();
-    button.innerText = "Stop animation";
-  } else {
-    tl.pause(0);
-    button.innerText = "Play animation";
-  }
-});
