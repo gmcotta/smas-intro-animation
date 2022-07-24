@@ -23,6 +23,7 @@ body {
   --color-tv-primary-dark: #3e3933;
   --color-tv-glass-off: #a6aeb1;
   --color-tv-glass-border: #5d6b6b;
+  --color-tv-power-indicator: #e41516;
   --color-game-splash-screen-coin: #dfc027;
   --color-game-splash-screen-coin-border: #c8900d;
   --color-game-select-game-screen-background: #396eb4;
@@ -209,7 +210,7 @@ main {
 .power-indicator {
   height: 6%;
   width: 20%;
-  background-color: #e41516;
+  background-color: var(--color-tv-power-indicator);
   border: 2px solid var(--color-tv-border);
 }
 
