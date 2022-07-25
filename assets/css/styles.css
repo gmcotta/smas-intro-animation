@@ -46,18 +46,6 @@ html {
   font-size: calc((100vw / 1920) * 10);
 }
 
-/* @media (max-width: 1024px) {
-  html {
-    font-size: calc((100vw / 1024) * 10);
-  }
-}
-
-@media (max-width: 428px) {
-  html {
-    font-size: calc((100vw / 428) * 10);
-  }
-} */
-
 * {
   margin: 0;
   padding: 0;
@@ -68,9 +56,55 @@ body {
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: azure;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  font-family: 'VT323', monospace;
+  background-color: var(--color-black-900);
+  color: var(--color-game-splash-screen-coin-border);
+  padding: 0.1rem 0;
+}
+
+header h1 {
+  font-size: 8rem;
+}
+
+header h2 {
+  font-size: 6rem;
+}
+
+header p {
+  font-size: 3.2rem;
+}
+
+header div {
+  height: 1rem;
+  width: 0%;
+  margin-top: 1rem;
+  background-color: var(--color-game-splash-screen-coin-border);
+}
+
+footer {
+  width: 100%;
+  height: 6rem;
+  background-color: var(--color-black-pure);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10rem;
+}
+
+footer a {
+  font-size: 2.4rem;
+  font-family: 'VT323', monospace;
+  color: var(--color-white-pure);
+  text-decoration: none;
 }
 
 main {
@@ -276,14 +310,14 @@ main {
 
 .corner-2 {
   border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
-  border: 8px solid var(--color-tv-glass-border);
+  border: 0.8rem solid var(--color-tv-glass-border);
   border-bottom: none;
   transform: translateY(15%);
 }
 
 .corner-4 {
   border-radius: 100% 0% 0% 100% / 50% 50% 50% 50%;
-  border: 8px solid var(--color-tv-glass-border);
+  border: 0.8rem solid var(--color-tv-glass-border);
   border-right: none;
   transform: translateX(15%);
 }
@@ -295,7 +329,7 @@ main {
 
 .corner-6 {
   border-radius: 0% 100% 100% 0% / 50% 50% 50% 50%;
-  border: 8px solid var(--color-tv-glass-border);
+  border: 0.8rem solid var(--color-tv-glass-border);
   border-left: none;
   overflow: hidden;
   transform: translateX(-15%);
@@ -303,7 +337,7 @@ main {
 
 .corner-8 {
   border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
-  border: 8px solid var(--color-tv-glass-border);
+  border: 0.8rem solid var(--color-tv-glass-border);
   border-top: none;
   overflow: hidden;
   transform: translateY(-15%);
@@ -338,7 +372,7 @@ main {
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: var(--color-game-splash-screen-coin);
-  border: 5px solid var(--color-game-splash-screen-coin-border);
+  border: 0.5rem solid var(--color-game-splash-screen-coin-border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -363,8 +397,8 @@ main {
 
 .game-splash-screen__logo {
   color: #fff;
-  border: 2px solid #fff;
-  padding: 0 14px;
+  border: 0.2rem solid var(--color-white-pure);
+  padding: 0 1.4rem;
   border-radius: 10000px;
   margin-top: 4%;
   font-family: 'VT323', monospace;
@@ -423,7 +457,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
   z-index: 2;
 }
 
@@ -432,14 +466,14 @@ main {
   text-transform: uppercase;
   font-size: 1.5vw;
   color: var(--color-game-select-game-screen-title);
-  border: 2px solid var(--color-white-pure);
+  border: 0.2rem solid var(--color-white-pure);
   border-radius: 1000px;
   background-color: var(--color-black-pure);
-  padding: 0 16px;
+  padding: 0 1.6rem;
 }
 
 .game-select-game-screen-title-container__arrow {
-  border: 2px solid var(--color-white-pure);
+  border: 0.2rem solid var(--color-white-pure);
   background-color: var(--color-game-select-game-screen-title);
   width: 25%;
   aspect-ratio: 2;
@@ -476,7 +510,7 @@ main {
 }
 
 .game-select-game-screen__game div {
-  margin-top: 10px;
+  margin-top: 1rem;
   font-family: 'VT323', monospace;
   text-align: center;
   color: var(--color-game-select-game-screen-title);
@@ -531,10 +565,10 @@ main {
   height: 95%;
   width: 15%;
   background-color: var(--color-cartridge-secondary-dark);
-  border-radius: 2px 0 0 2px;
+  border-radius: 0.4rem 0 0 0.4rem;
   display: grid;
   grid-template-rows: repeat(6, 1fr);
-  gap: 2px;
+  gap: 0.2rem;
   position: relative;
 }
 
@@ -557,7 +591,7 @@ main {
   height: 100%;
   width: 70%;
   background-color: var(--color-cartrigde-primary);
-  border-radius: 2px 2px 0 0;
+  border-radius: 0.2rem 0.2rem 0 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -571,11 +605,11 @@ main {
 .cartridge-center__lower-part {
   width: 90%;
   height: 40%;
-  border: 2px solid var(--color-cartridge-secondary-dark);
+  border: 0.2rem solid var(--color-cartridge-secondary-dark);
   background-color: var(--color-cartridge-secondary);
 
   border-bottom: none;
-  border-radius: 4px 4px 0 0;
+  border-radius: 0.4rem 0.4rem 0 0;
   position: relative;
 }
 
@@ -640,7 +674,7 @@ main {
 .snes-body__raised-part {
   width: 25%;
   aspect-ratio: 0.8;
-  border: 2px solid var(--color-snes-border);
+  border: 0.2rem solid var(--color-snes-border);
   background-color: var(--color-snes-primary);
   position: absolute;
   top: 10%;
@@ -679,7 +713,7 @@ main {
 .snes-raised-part__center {
   width: 100%;
   height: 33%;
-  border: 2px solid var(--color-snes-border);
+  border: 0.2rem solid var(--color-snes-border);
   border-left: none;
   border-right: none;
   display: flex;
@@ -691,14 +725,14 @@ main {
   width: 80%;
   height: 50%;
   background-color: var(--color-snes-secondary);
-  border: 2px solid var(--color-snes-border);
+  border: 0.2rem solid var(--color-snes-border);
   border-radius: 1000px 0 0 1000px;
   display: flex;
   align-items: center;
 }
 
 .controller-connector__small-part {
-  border-right: 2px solid var(--color-snes-border);
+  border-right: 0.2rem solid var(--color-snes-border);
   width: 45%;
   height: 100%;
   display: flex;
@@ -715,7 +749,7 @@ main {
 }
 
 .connector__dot {
-  width: 6px;
+  width: 0.6rem;
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: var(--color-snes-border);
