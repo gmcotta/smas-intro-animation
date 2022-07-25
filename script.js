@@ -1,11 +1,13 @@
 const GRID_NUMBER = 16;
 
+// config progress bar
+const progressBar = document.querySelector("#progress-bar");
+
 // config intro transition parts
 const upperLeftScreen = document.querySelector("#upper-left");
 const upperRightScreen = document.querySelector("#upper-right");
 const lowerLeftScreen = document.querySelector("#lower-left");
 const lowerRightScreen = document.querySelector("#lower-right");
-
 
 const introTransitionFadeInFromParameters = {
   background: "linear-gradient(-45deg, rgba(0,0,0,0) 100%, rgba(0,0,0,1) 0%)"
@@ -101,7 +103,9 @@ cartridgeFloatingTl.fromTo(
 const startAnimation = () => {
   // connect cartridge
   cartridgeFloatingTl.pause();
-  const mainTl = gsap.timeline();
+  const mainTl = gsap.timeline({ 
+    onUpdate: () => gsap.set(progressBar, { width: `${mainTl.progress() * 100}%`})
+  });
   gsap.killTweensOf(cartridge);
   mainTl.to(cartridge, { top: '20rem', duration: 1, ease: 'linear' });
   
