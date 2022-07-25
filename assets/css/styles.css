@@ -90,23 +90,6 @@ header div {
   background-color: var(--color-game-splash-screen-coin-border);
 }
 
-footer {
-  width: 100%;
-  height: 6rem;
-  background-color: var(--color-black-pure);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 10rem;
-}
-
-footer a {
-  font-size: 2.4rem;
-  font-family: 'VT323', monospace;
-  color: var(--color-white-pure);
-  text-decoration: none;
-}
-
 main {
   width: 100%;
   height: 100%;
@@ -759,4 +742,58 @@ main {
   width: 95%;
   height: 1rem;
   background-color: var(--color-snes-border);
+}
+
+footer {
+  width: 100%;
+  height: 6rem;
+  background-color: var(--color-black-pure);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10rem;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  gap: 2rem;
+  display: none;
+  opacity: 1;
+}
+
+.overlay button, 
+.overlay a {
+  background-color: var(--color-game-select-game-screen-title);
+  color: var(--color-black-pure);
+  font-size: 10rem;
+  border: 0.8rem solid var(--color-white-pure);
+  border-radius: 0.8rem;
+  padding: 1rem 3rem;
+  font-family: 'VT323', monospace;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.overlay button:hover, 
+.overlay a:hover {
+  cursor: pointer;
+  background-color: var(--color-game-splash-screen-coin-border);
+  border: 0.8rem solid var(--color-snes-primary);
+}
+
+footer a {
+  font-size: 2.4rem;
+  font-family: 'VT323', monospace;
+  color: var(--color-white-pure);
+  text-decoration: none;
 }

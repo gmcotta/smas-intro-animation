@@ -99,13 +99,18 @@ cartridgeFloatingTl.fromTo(
   { top: '6rem', duration: 1, ease: 'sine.inOut', repeat: -1, yoyo: true }
 );
 
+// overlay
+const overlay = document.querySelector('.overlay');
+const playAgainButton = document.querySelector('#play-again');
+
 // main timeline
+const mainTl = gsap.timeline({ 
+  onUpdate: () => gsap.set(progressBar, { width: `${mainTl.progress() * 100}%`})
+});
+
 const startAnimation = () => {
   // connect cartridge
   cartridgeFloatingTl.pause();
-  const mainTl = gsap.timeline({ 
-    onUpdate: () => gsap.set(progressBar, { width: `${mainTl.progress() * 100}%`})
-  });
   gsap.killTweensOf(cartridge);
   mainTl.to(cartridge, { top: '20rem', duration: 1, ease: 'linear' });
   
@@ -195,6 +200,19 @@ const startAnimation = () => {
   mainTl.to(gameSelectCarousel, { x: '-42%', duration: 1, ease: 'none' }, '<+=1.5')
   mainTl.to(gameSelectCarousel, { x: '-25%', duration: 1, ease: 'none' }, '<+=1.5')
   mainTl.to(gameSelectCarousel, { x: '-8%', duration: 1, ease: 'none' }, '<+=1.5')
+  mainTl.call(() => {
+    gsap.set(overlay, { display: 'flex', autoAlpha: 1, duration: 0 });
+  })
+
+}
+
+const restartAnimation = () => {
+  gsap.set(overlay, { display: 'none', autoAlpha: 0, duration: 0 });
+  mainTl.play(0);
 }
 
 cartridge.addEventListener('click', startAnimation);
+
+
+
+playAgainButton.addEventListener('click', restartAnimation);
