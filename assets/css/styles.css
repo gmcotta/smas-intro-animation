@@ -46,6 +46,18 @@ html {
   font-size: calc((100vw / 1920) * 10);
 }
 
+@media (max-width: 1024px) {
+  html {
+    font-size: calc((100vw / 1024) * 9);
+  }
+}
+
+@media (max-width: 428px) {
+  html {
+    font-size: calc((100vw / 428) * 5);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -65,7 +77,7 @@ body {
 header {
   width: 100%;
   text-align: center;
-  font-family: 'VT323', monospace;
+  font-family: "VT323", monospace;
   background-color: var(--color-black-900);
   color: var(--color-game-splash-screen-coin-border);
   padding: 0.1rem 0;
@@ -369,7 +381,7 @@ main {
   left: 0;
   right: 0;
   border-radius: 50%;
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
 }
 
 .game-splash-screen-coin__center {
@@ -384,7 +396,7 @@ main {
   padding: 0 1.4rem;
   border-radius: 10000px;
   margin-top: 4%;
-  font-family: 'VT323', monospace;
+  font-family: "VT323", monospace;
   font-size: 1.4vw;
 }
 
@@ -445,7 +457,7 @@ main {
 }
 
 .game-select-game-screen-title-container__title {
-  font-family: 'Limelight', cursive;
+  font-family: "Limelight", cursive;
   text-transform: uppercase;
   font-size: 1.5vw;
   color: var(--color-game-select-game-screen-title);
@@ -485,7 +497,6 @@ main {
   flex-direction: column;
   width: 50%;
   padding: 1.5vw;
-
 }
 
 .game-select-game-screen__game img {
@@ -494,7 +505,7 @@ main {
 
 .game-select-game-screen__game div {
   margin-top: 1rem;
-  font-family: 'VT323', monospace;
+  font-family: "VT323", monospace;
   text-align: center;
   color: var(--color-game-select-game-screen-title);
   text-transform: uppercase;
@@ -539,7 +550,7 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;;
+  height: 100%;
   display: flex;
   align-items: flex-end;
 }
@@ -597,7 +608,7 @@ main {
 }
 
 .cartridge-center__lower-part::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 50%;
@@ -771,7 +782,7 @@ footer {
   opacity: 1;
 }
 
-.overlay button, 
+.overlay button,
 .overlay a {
   background-color: var(--color-game-select-game-screen-title);
   color: var(--color-black-pure);
@@ -779,12 +790,12 @@ footer {
   border: 0.8rem solid var(--color-white-pure);
   border-radius: 0.8rem;
   padding: 1rem 3rem;
-  font-family: 'VT323', monospace;
+  font-family: "VT323", monospace;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
 }
 
-.overlay button:hover, 
+.overlay button:hover,
 .overlay a:hover {
   cursor: pointer;
   background-color: var(--color-game-splash-screen-coin-border);
@@ -793,7 +804,7 @@ footer {
 
 footer a {
   font-size: 2.4rem;
-  font-family: 'VT323', monospace;
+  font-family: "VT323", monospace;
   color: var(--color-white-pure);
   text-decoration: none;
 }
