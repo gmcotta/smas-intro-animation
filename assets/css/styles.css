@@ -46,6 +46,12 @@ html {
   font-size: calc((100vw / 1920) * 10);
 }
 
+@media (max-width: 1024px) {
+  html {
+    font-size: calc((100vw / 1024) * 9);
+  }
+}
+
 @media (max-width: 428px) {
   html {
     font-size: calc((100vw / 428) * 5);
