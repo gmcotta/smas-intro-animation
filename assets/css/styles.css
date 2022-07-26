@@ -512,11 +512,11 @@ main {
 }
 
 .game-select-game-screen__game h4 {
-  font-size: 1.2vw;
+  font-size: 2rem;
 }
 
 .game-select-game-screen__game p {
-  font-size: 0.9vw;
+  font-size: 1.8rem;
 }
 
 .tv__stand {
