@@ -121,6 +121,14 @@ cartridgeFloatingTl.fromTo(
 const overlay = document.querySelector(".overlay");
 const playAgainButton = document.querySelector("#play-again");
 
+// audios
+const nintendoLogoAudio = document.querySelector('#nintendo-logo-audio');
+const introChatterAudio = document.querySelector('#intro-chatter-audio');
+const introAudio = document.querySelector('#intro-audio');
+const introFadeOutAnimationAudio = document.querySelector('#intro-fadeout-animation-audio');
+const introFadeInAnimationAudio = document.querySelector('#intro-fadein-animation-audio');
+const gameSelectAudio = document.querySelector('#game-select-audio');
+
 // main timeline
 const mainTl = gsap.timeline({
   onUpdate: () =>
@@ -159,14 +167,23 @@ const startAnimation = () => {
     },
     "<+=1"
   );
+  mainTl.call(() => {
+    nintendoLogoAudio.play();
+  }, [], '<');
   mainTl.set(gameSplashScreenCoinShimmer, { autoAlpha: 0, duration: 0 });
   mainTl.to(
     [gameSplashScreenCoin, gameSplashScreenLogo],
     { autoAlpha: 0, duration: 0.5 },
     "<+=1"
   );
+  mainTl.call(() => {
+    nintendoLogoAudio.pause();
+  }, [], '<');
 
   // intro animation
+  mainTl.call(() => {
+    introChatterAudio.play();
+  }, []);
   for (let i = 0; i < 2; i++) {
     mainTl.to(gameIntroFrame1, { autoAlpha: 1, duration: 0.4 });
     mainTl.to(gameIntroFrame2, { autoAlpha: 1, duration: 0.4 });
@@ -182,10 +199,14 @@ const startAnimation = () => {
   mainTl.to(gameIntroFrame3, { autoAlpha: 1, duration: 0.4 });
   mainTl.to(gameIntroFrame4, { autoAlpha: 1, duration: 0.4 });
   mainTl.to(gameIntroFrame5, { autoAlpha: 1, duration: 0.4 });
+  mainTl.call(() => {
+    introChatterAudio.pause();
+    introAudio.play();
+  }, [], '<');
   mainTl.set(
     [gameIntroFrame1, gameIntroFrame2, gameIntroFrame3, gameIntroFrame4],
     { autoAlpha: 0, duration: 0 },
-    "<+=2"
+    "<+=5"
   );
 
   // intro transition
@@ -193,6 +214,10 @@ const startAnimation = () => {
     [upperLeftScreen, upperRightScreen, lowerLeftScreen, lowerRightScreen],
     { zIndex: 20, duration: 0 }
   );
+  mainTl.call(() => {
+    introAudio.pause();
+    introFadeOutAnimationAudio.play();
+  }, [], '<');
   for (let j = 0; j <= GRID_NUMBER - 1; j++) {
     let boxes = [];
     for (let i = 1; i <= GRID_NUMBER - j; i++) {
@@ -228,6 +253,10 @@ const startAnimation = () => {
     { autoAlpha: 1, duration: 0 },
     "<+=1.5"
   );
+  mainTl.call(() => {
+    introFadeOutAnimationAudio.pause();
+    introFadeInAnimationAudio.play();
+  }, [], '<');
 
   for (let j = GRID_NUMBER - 1; j >= 0; j--) {
     let boxes = [];
@@ -259,6 +288,10 @@ const startAnimation = () => {
   }
 
   // select game
+  mainTl.call(() => {
+    introFadeInAnimationAudio.pause();
+    gameSelectAudio.play();
+  }, []);
   mainTl.to(gameSelectCarousel, { x: "-25%", duration: 1, ease: "none" });
   mainTl.to(
     gameSelectCarousel,
@@ -286,12 +319,19 @@ const startAnimation = () => {
     "<+=1.5"
   );
   mainTl.call(() => {
+    gameSelectAudio.pause();
     gsap.set(overlay, { display: "flex", autoAlpha: 1, duration: 0 });
   });
 };
 
 const restartAnimation = () => {
   gsap.set(overlay, { display: "none", autoAlpha: 0, duration: 0 });
+  nintendoLogoAudio.currentTime = 0;
+  introChatterAudio.currentTime = 0;
+  introAudio.currentTime = 0;
+  introFadeOutAnimationAudio.currentTime = 0;
+  introFadeInAnimationAudio.currentTime = 0;
+  gameSelectAudio.currentTime = 0;
   mainTl.play(0);
 };
 
